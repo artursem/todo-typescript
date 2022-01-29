@@ -1,16 +1,18 @@
 import { FC, useContext } from 'react';
-import Todo from '../models/todo';
 import { TodoContext } from '../store/todo-context';
-
-// const TODOS: Todo[] = [
-// 	{ id: '0', text: 'build components', isDone: false },
-// 	{ id: '1', text: 'add typescript', isDone: false },
-// 	{ id: '3', text: 'add tests', isDone: false },
-// ];
+import TodoItem from './TodoItem';
 
 const TodoList: FC = () => {
 	const ctx = useContext(TodoContext);
-	const listItems = ctx.items.map((todo) => <li key={todo.id}>{todo.text}</li>);
+	const listItems = ctx.items.map((todo) => (
+		<TodoItem
+			key={todo.id}
+			text={todo.text}
+			isDone={todo.isDone}
+			onRemoveTodo={ctx.removeTodo.bind(null, todo.id)}
+		/>
+	));
+
 	return <ul>{listItems}</ul>;
 };
 
