@@ -6,6 +6,7 @@ type todoItemProps = {
 	text: string;
 	isDone: boolean;
 	onRemoveTodo: () => void;
+	onToggleTodo: () => void;
 };
 
 const TodoItem = (props: todoItemProps) => {
@@ -16,6 +17,9 @@ const TodoItem = (props: todoItemProps) => {
 			{props.text}
 			<Button type='button' onClick={props.onRemoveTodo}>
 				remove
+			</Button>
+			<Button type='button' onClick={props.onToggleTodo}>
+				toggle
 			</Button>
 		</li>
 	);

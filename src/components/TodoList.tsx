@@ -10,6 +10,7 @@ const TodoList: FC = () => {
 			text={todo.text}
 			isDone={todo.isDone}
 			onRemoveTodo={ctx.removeTodo.bind(null, todo.id)}
+			onToggleTodo={ctx.toggleTodo.bind(null, todo.id)}
 		/>
 	));
 

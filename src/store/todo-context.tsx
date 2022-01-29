@@ -5,12 +5,14 @@ type TodosContextObj = {
 	items: Todo[];
 	addTodo: (text: string) => void;
 	removeTodo: (id: string) => void;
+	toggleTodo: (id: string) => void;
 };
 
 export const TodoContext = React.createContext<TodosContextObj>({
 	items: [],
 	addTodo: () => {},
 	removeTodo: (id: string) => {},
+	toggleTodo: (id: string) => {},
 });
 
 const TodoContextProvider: FC = (props) => {
@@ -29,10 +31,18 @@ const TodoContextProvider: FC = (props) => {
 		});
 	};
 
+	const toggleTodoHandler = (todoId: string) => {
+		const allTodos = [...todoList];
+		const changeTodoIdx = allTodos.findIndex((todo) => todo.id === todoId);
+		allTodos[changeTodoIdx].isDone = !allTodos[changeTodoIdx].isDone;
+		setTodoList(allTodos);
+	};
+
 	const contextValue: TodosContextObj = {
 		items: todoList,
 		addTodo: addTodoHandler,
 		removeTodo: removeTodoHandler,
+		toggleTodo: toggleTodoHandler,
 	};
 
 	return (
