@@ -1,6 +1,11 @@
 import { useContext } from 'react';
 import { TodoContext } from '../store/todo-context';
 import Button from './UI/Button';
+import IconCancel from './UI/icons/IconCancel';
+import IconCheck from './UI/icons/IconCheck';
+import IconTrash from './UI/icons/IconTrash';
+import './TodoItem.css';
+import { text } from 'stream/consumers';
 
 type todoItemProps = {
 	text: string;
@@ -11,17 +16,19 @@ type todoItemProps = {
 
 const TodoItem = (props: todoItemProps) => {
 	const ctx = useContext(TodoContext);
+	const textClasses = props.isDone ? 'item__text done' : 'item__text';
 
 	return (
-		<li>
-			{props.text}
-			{props.isDone && <span>v</span>}
-			<Button type='button' onClick={props.onRemoveTodo}>
-				remove
-			</Button>
-			<Button type='button' onClick={props.onToggleTodo}>
-				toggle
-			</Button>
+		<li className='item'>
+			<p className={textClasses}>{props.text}</p>
+			<div className='btns'>
+				<Button type='button' onClick={props.onToggleTodo}>
+					{props.isDone ? <IconCancel /> : <IconCheck />}
+				</Button>
+				<Button type='button' onClick={props.onRemoveTodo}>
+					<IconTrash />
+				</Button>
+			</div>
 		</li>
 	);
 };

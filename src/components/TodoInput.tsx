@@ -1,6 +1,7 @@
 import { FC, FormEvent, useRef, useContext } from 'react';
 import { TodoContext } from '../store/todo-context';
 import Button from './UI/Button';
+import './TodoInput.css';
 
 const isValid = (text: string) => {
 	return text.trim().length > 0;
@@ -18,8 +19,8 @@ const TodoInput: FC = () => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<input type='text' id='todoText' ref={todoInputRef} />
+		<form onSubmit={handleSubmit} className='form'>
+			<input type='text' id='todoText' ref={todoInputRef} className='input' />
 			<Button type='submit'>Add</Button>
 		</form>
 	);

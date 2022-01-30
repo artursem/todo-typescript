@@ -1,0 +1,33 @@
+.item {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: top;
+
+	margin: 10px 0;
+	background-color: var(--accentLight);
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+	transition: all 0.2s ease-out;
+}
+
+.item:hover {
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	transform: scale(1.01);
+}
+
+.item__text {
+	text-decoration: none;
+	padding: 1rem 0.3rem;
+	line-height: 1.5rem;
+}
+
+.done {
+	text-decoration: line-through;
+	color: var(--light);
+}
+
+.btns {
+	padding: 0.6rem 0.3rem;
+	display: flex;
+	flex-direction: row;
+}

@@ -1,4 +1,6 @@
 import { FC } from 'react';
+import './Button.css';
+
 type button = {
 	type?: 'submit' | 'button' | 'reset';
 	isDisabled?: boolean;
@@ -7,7 +9,7 @@ type button = {
 
 const Button: FC<button> = ({ type, isDisabled, onClick, children }) => {
 	return (
-		<button onClick={onClick} disabled={isDisabled} type={type}>
+		<button onClick={onClick} disabled={isDisabled} type={type} className='btn'>
 			{children}
 		</button>
 	);

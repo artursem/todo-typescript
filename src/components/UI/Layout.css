@@ -1,0 +1,14 @@
+.layout {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: stretch;
+
+	width: 500px;
+	min-height: 100vh;
+	border: none;
+	background: var(--white);
+
+	padding: 1rem;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}

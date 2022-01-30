@@ -1,0 +1,14 @@
+.app {
+	width: 100vw;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: var(--bg);
+	color: var(--black);
+}
+
+.app h1 {
+	margin: 0.5rem 0;
+}

@@ -1,0 +1,19 @@
+.btn {
+	border: var(--accent);
+	color: var(--black);
+	background-color: var(--accent);
+	font-family: inherit;
+	font-size: 0.8rem;
+	font-weight: bold;
+	height: 2rem;
+	padding: 3px;
+	margin: 3px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.btn:hover {
+	border-color: var(--accentMid);
+	background-color: var(--accentMid);
+	color: var(--dark);
+}
