@@ -3,6 +3,7 @@
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: top;
+	border-radius: 5px;
 
 	margin: 10px 0;
 	background-color: var(--accentLight);
@@ -11,13 +12,13 @@
 }
 
 .item:hover {
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-	transform: scale(1.01);
+	box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+	transform: scale(1.005);
 }
 
-.item__text {
+.text {
 	text-decoration: none;
-	padding: 1rem 0.3rem;
+	padding: 1rem 0.5rem;
 	line-height: 1.5rem;
 }
 
@@ -27,7 +28,7 @@
 }
 
 .btns {
-	padding: 0.6rem 0.3rem;
+	padding: 0.5rem 0.3rem;
 	display: flex;
 	flex-direction: row;
 }

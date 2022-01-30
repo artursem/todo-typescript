@@ -41,6 +41,7 @@
 		]
 	},
 	"devDependencies": {
+		"typed-css-modules-webpack-plugin": "^0.2.0",
 		"typescript-plugin-css-modules": "^3.4.0",
 		"typings-for-css-modules-loader": "^1.7.0"
 	}

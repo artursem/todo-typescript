@@ -14,7 +14,15 @@ const TodoList: FC = () => {
 		/>
 	));
 
-	return <ul>{listItems}</ul>;
+	return (
+		<ul className='list'>
+			{listItems.length > 0 ? (
+				listItems
+			) : (
+				<p className='emptyText'>Please add item in input above</p>
+			)}
+		</ul>
+	);
 };
 
 export default TodoList;
