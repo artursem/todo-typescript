@@ -15,6 +15,7 @@ const TodoItem = (props: todoItemProps) => {
 	return (
 		<li>
 			{props.text}
+			{props.isDone && <span>v</span>}
 			<Button type='button' onClick={props.onRemoveTodo}>
 				remove
 			</Button>
