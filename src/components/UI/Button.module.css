@@ -10,10 +10,11 @@
 	margin: 3px;
 	border-radius: 3px;
 	cursor: pointer;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 
 .btn:hover {
 	border-color: var(--accentMid);
 	background-color: var(--accentMid);
-	color: var(--dark);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }

@@ -1,9 +1,21 @@
-import { FC, useContext } from 'react';
+import { FC, Fragment, useContext, useState } from 'react';
 import { TodoContext } from '../store/todo-context';
 import TodoItem from './TodoItem';
+import classes from './TodoList.module.css';
+import Button from './UI/Button';
+import IconGrid from './UI/icons/IconGrid';
+import IconList from './UI/icons/IconList';
 
 const TodoList: FC = () => {
+	const [displayGrid, setDisplayGrid] = useState(false);
+
 	const ctx = useContext(TodoContext);
+
+	const toggleListStyle = () => {
+		setDisplayGrid((prevState) => {
+			return !prevState;
+		});
+	};
 	const listItems = ctx.items.map((todo) => (
 		<TodoItem
 			key={todo.id}
@@ -14,14 +26,23 @@ const TodoList: FC = () => {
 		/>
 	));
 
+	const ulClasses = `${classes.list} ${
+		displayGrid ? classes.displayAsGrid : classes.displayAsList
+	}`;
+
 	return (
-		<ul className='list'>
-			{listItems.length > 0 ? (
-				listItems
-			) : (
-				<p className='emptyText'>Please add item in input above</p>
-			)}
-		</ul>
+		<Fragment>
+			<Button onClick={toggleListStyle}>
+				{displayGrid ? <IconList /> : <IconGrid />}
+			</Button>
+			<ul className={ulClasses}>
+				{listItems.length > 0 ? (
+					listItems
+				) : (
+					<p>Please add item in input above</p>
+				)}
+			</ul>
+		</Fragment>
 	);
 };
 

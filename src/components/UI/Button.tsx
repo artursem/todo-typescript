@@ -1,22 +1,23 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import classes from './Button.module.css';
 
-type button = {
+type ButtonProps = {
 	type?: 'submit' | 'button' | 'reset';
 	isDisabled?: boolean;
 	onClick?: () => void;
 	height?: string;
 	width?: string;
+	children?: ReactNode;
 };
 
-const Button: FC<button> = ({
+const Button = ({
 	type,
 	isDisabled,
 	onClick,
 	children,
 	height,
 	width,
-}) => {
+}: ButtonProps) => {
 	const buttonHeigth: string = height || '2rem';
 	const buttonWidth: string = width || '2rem';
 	const buttonType: 'submit' | 'button' | 'reset' = type || 'button';

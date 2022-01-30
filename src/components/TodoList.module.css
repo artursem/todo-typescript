@@ -1,0 +1,15 @@
+.list {
+	display: grid;
+}
+
+.displayAsList {
+	grid-template-columns: 1fr;
+	row-gap: 1rem;
+}
+
+.displayAsGrid {
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	/* grid-template-rows: repeat(auto-fit, minmax(200px, 1fr)); */
+	column-gap: 0.5rem;
+	row-gap: 0.5rem;
+}
