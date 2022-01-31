@@ -3,23 +3,23 @@
 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 	margin: 1rem 0;
 	overflow: hidden;
+	border-radius: 5px;
 }
 .menuWrapper {
 	display: flex;
 	flex-direction: row;
 	align-items: stretch;
 	min-height: 1rem;
-	border-radius: 5px;
 
 	transition: all 0.3s ease-in;
 }
-
-.menuOpen {
-	transform: translateX(0);
+.spacer {
+	width: 0%;
+	transition: all 1s;
 }
-
-.menuClose {
-	transform: translateX(460px);
+.spacerClosed {
+	width: 100%;
+	transition: all 1s;
 }
 
 .menuList {
