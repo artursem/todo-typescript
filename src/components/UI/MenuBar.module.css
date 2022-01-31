@@ -1,0 +1,10 @@
+.nav {
+	display: flex;
+	flex-direction: row;
+	min-height: 1rem;
+	border-radius: 5px;
+
+	background-color: var(--accentLight);
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+	margin: 1rem 0;
+}

@@ -8,6 +8,7 @@ type ButtonProps = {
 	height?: string;
 	width?: string;
 	children?: ReactNode;
+	style?: React.CSSProperties;
 };
 
 const Button = ({
@@ -17,6 +18,7 @@ const Button = ({
 	children,
 	height,
 	width,
+	style,
 }: ButtonProps) => {
 	const buttonHeigth: string = height || '2rem';
 	const buttonWidth: string = width || '2rem';
@@ -28,7 +30,7 @@ const Button = ({
 			disabled={isDisabled}
 			type={buttonType}
 			className={classes.btn}
-			style={{ height: buttonHeigth, width: buttonWidth }}
+			style={{ height: buttonHeigth, width: buttonWidth, ...style }}
 		>
 			{children}
 		</button>

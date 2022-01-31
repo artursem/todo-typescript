@@ -8,13 +8,13 @@ const isValid = (text: string) => {
 };
 
 const TodoInput: FC = () => {
-	const ctx = useContext(TodoContext);
+	const todoCtx = useContext(TodoContext);
 	const todoInputRef = useRef<HTMLInputElement>(null);
 	const handleSubmit = (event: FormEvent) => {
 		event.preventDefault();
 		const todoText = todoInputRef.current!.value;
 		if (!isValid(todoText)) return;
-		ctx.addTodo(todoText);
+		todoCtx.addTodo(todoText);
 		todoInputRef.current!.value = '';
 	};
 
