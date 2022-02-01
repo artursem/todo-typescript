@@ -1,5 +1,6 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { UIContext } from '../../store/UI-context';
+import { CSSTransition } from 'react-transition-group';
 import Button from './Button';
 import IconList from './icons/IconList';
 import IconGrid from './icons/IconGrid';
@@ -8,36 +9,58 @@ import classes from './MenuBar.module.css';
 
 const MenuBar = () => {
 	const UICtx = useContext(UIContext);
-	const spacerClasses = `${
-		UICtx.isMenuOpen ? classes.spacer : classes.spacerClosed
-	}`;
+	const { isGridDisplay, toggleGrid, isMenuOpen } = UICtx;
+
 	return (
 		<nav className={classes.nav}>
 			<div className={classes.menuWrapper}>
-				<div className={spacerClasses}></div>
-				<MenuButton />
-				{UICtx.isMenuOpen && (
+				<CSSTransition
+					in={isMenuOpen}
+					timeout={1000}
+					classNames={{
+						enter: classes.btnDone,
+						appear: classes.btnDone,
+						enterActive: classes.btnIn,
+						exit: '',
+						exitActive: classes.btnOut,
+						exitDone: classes.btnDone,
+					}}
+				>
+					<MenuButton />
+				</CSSTransition>
+				<CSSTransition
+					mountOnEnter
+					unmountOnExit
+					in={isMenuOpen}
+					timeout={1000}
+					classNames={{
+						enter: '',
+						enterActive: classes.menuIn,
+						exit: '',
+						exitActive: classes.menuOut,
+					}}
+				>
 					<ul className={classes.menuList}>
 						<li className={classes.menuText}>
-							<Button onClick={UICtx.toggleGrid}>
-								{UICtx.isGridDisplay ? <IconList /> : <IconGrid />}
+							<Button onClick={toggleGrid}>
+								{isGridDisplay ? <IconList /> : <IconGrid />}
 							</Button>
-							display as {UICtx.isGridDisplay ? 'list' : 'grid'}
+							display as {isGridDisplay ? 'list' : 'grid'}
 						</li>
 						<li className={classes.menuText}>
-							<Button onClick={UICtx.toggleGrid}>
-								{UICtx.isGridDisplay ? <IconList /> : <IconGrid />}
+							<Button onClick={toggleGrid}>
+								{isGridDisplay ? <IconList /> : <IconGrid />}
 							</Button>
-							display as {UICtx.isGridDisplay ? 'list' : 'grid'}
+							display as {isGridDisplay ? 'list' : 'grid'}
 						</li>
 						<li className={classes.menuText}>
-							<Button onClick={UICtx.toggleGrid}>
-								{UICtx.isGridDisplay ? <IconList /> : <IconGrid />}
+							<Button onClick={toggleGrid}>
+								{isGridDisplay ? <IconList /> : <IconGrid />}
 							</Button>
-							display as {UICtx.isGridDisplay ? 'list' : 'grid'}
+							display as {isGridDisplay ? 'list' : 'grid'}
 						</li>
 					</ul>
-				)}
+				</CSSTransition>
 			</div>
 		</nav>
 	);

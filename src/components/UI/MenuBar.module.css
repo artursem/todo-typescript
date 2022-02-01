@@ -10,16 +10,6 @@
 	flex-direction: row;
 	align-items: stretch;
 	min-height: 1rem;
-
-	transition: all 0.3s ease-in;
-}
-.spacer {
-	width: 0%;
-	transition: all 1s;
-}
-.spacerClosed {
-	width: 100%;
-	transition: all 1s;
 }
 
 .menuList {
@@ -36,4 +26,61 @@
 	font-family: 'Roboto Mono', monospace;
 	font-size: 0.8rem;
 	text-transform: uppercase;
+}
+
+.menuIn {
+	animation: menuIn 1s ease-in;
+}
+.menuOut {
+	animation: menuOut 1s ease-in;
+}
+
+@keyframes menuIn {
+	0% {
+		opacity: 0;
+		transform: translateX(470px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes menuOut {
+	0% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	100% {
+		opacity: 0;
+		transform: translateX(470px);
+	}
+}
+
+.btnIn {
+	animation: btnIn 1s ease-in;
+}
+.btnOut {
+	animation: btnOut 1s ease-in;
+}
+.btnDone {
+	transform: translateX(470px);
+}
+
+@keyframes btnIn {
+	0% {
+		transform: translateX(470px);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes btnOut {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(470px);
+	}
 }
