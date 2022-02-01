@@ -24,3 +24,14 @@ body {
 
 	color: var(--black);
 }
+
+.darkMode {
+	--bg: hsl(0, 0%, 15%);
+	--black: hsl(0, 0%, 90%);
+	--dark: hsl(270, 7%, 35%);
+	--light: hsl(270, 7%, 55%);
+	--white: hsl(0, 0%, 10%);
+	--accent: hsl(230, 90%, 30%);
+	--accentMid: hsl(230, 90%, 60%);
+	--accentLight: hsl(230, 20%, 10%);
+}

@@ -32,6 +32,7 @@ const UIContextProvider: FC = ({ children }) => {
 	};
 
 	const toggleDarkModeHandler = () => {
+		document.body.classList.toggle('darkMode');
 		setIsDark((prevState) => !prevState);
 	};
 

@@ -6,10 +6,13 @@ import IconList from './icons/IconList';
 import IconGrid from './icons/IconGrid';
 import MenuButton from './MenuButton';
 import classes from './MenuBar.module.css';
+import IconSun from './icons/IconSun';
+import IconMoon from './icons/IconMoon';
 
 const MenuBar = () => {
 	const UICtx = useContext(UIContext);
-	const { isGridDisplay, toggleGrid, isMenuOpen } = UICtx;
+	const { isGridDisplay, toggleGrid, isMenuOpen, isDarkMode, toggleDarkMode } =
+		UICtx;
 
 	return (
 		<nav className={classes.nav}>
@@ -49,10 +52,10 @@ const MenuBar = () => {
 							display as {isGridDisplay ? 'list' : 'grid'}
 						</li>
 						<li className={classes.menuText}>
-							<Button onClick={toggleGrid}>
-								{isGridDisplay ? <IconList /> : <IconGrid />}
+							<Button onClick={toggleDarkMode}>
+								{isDarkMode ? <IconSun /> : <IconMoon />}
 							</Button>
-							display as {isGridDisplay ? 'list' : 'grid'}
+							{isDarkMode ? 'light' : 'dark'} mode
 						</li>
 						<li className={classes.menuText}>
 							<Button onClick={toggleGrid}>
