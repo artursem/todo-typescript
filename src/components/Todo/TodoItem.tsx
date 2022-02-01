@@ -1,10 +1,10 @@
 import { useContext } from 'react';
-import { TodoContext } from '../store/todo-context';
-import { UIContext } from '../store/UI-context';
-import Button from './UI/Button';
-import IconCancel from './UI/icons/IconCancel';
-import IconCheck from './UI/icons/IconCheck';
-import IconTrash from './UI/icons/IconTrash';
+import { TodoContext } from '../../store/todo-context';
+import { UIContext } from '../../store/UI-context';
+import Button from '../UI/Button';
+import IconCancel from '../UI/icons/IconCancel';
+import IconCheck from '../UI/icons/IconCheck';
+import IconTrash from '../UI/icons/IconTrash';
 import classes from './TodoItem.module.css';
 
 type todoItemProps = {

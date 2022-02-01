@@ -1,6 +1,6 @@
 import { FC, Fragment, useContext } from 'react';
-import { TodoContext } from '../store/todo-context';
-import { UIContext } from '../store/UI-context';
+import { TodoContext } from '../../store/todo-context';
+import { UIContext } from '../../store/UI-context';
 import TodoItem from './TodoItem';
 import classes from './TodoList.module.css';
 

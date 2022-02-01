@@ -8,6 +8,7 @@ import MenuButton from './MenuButton';
 import classes from './MenuBar.module.css';
 import IconSun from './icons/IconSun';
 import IconMoon from './icons/IconMoon';
+import IconFilter from './icons/IconFilter';
 
 const MenuBar = () => {
 	const UICtx = useContext(UIContext);
@@ -59,9 +60,9 @@ const MenuBar = () => {
 						</li>
 						<li className={classes.menuText}>
 							<Button onClick={toggleGrid}>
-								{isGridDisplay ? <IconList /> : <IconGrid />}
+								<IconFilter />
 							</Button>
-							display as {isGridDisplay ? 'list' : 'grid'}
+							Filter
 						</li>
 						<li className={classes.menuText}>
 							<Button onClick={toggleGrid}>

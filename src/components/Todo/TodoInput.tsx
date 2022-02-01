@@ -1,6 +1,6 @@
 import { FC, FormEvent, useRef, useContext } from 'react';
-import { TodoContext } from '../store/todo-context';
-import Button from './UI/Button';
+import { TodoContext } from '../../store/todo-context';
+import Button from '../UI/Button';
 import classes from './TodoInput.module.css';
 
 const isValid = (text: string) => {
