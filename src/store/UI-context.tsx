@@ -1,4 +1,4 @@
-import React, { FC, ReactChild, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 
 type UIObj = {
 	isMenuOpen: boolean;
@@ -23,17 +23,34 @@ const UIContextProvider: FC = ({ children }) => {
 	const [isGrid, setIsGrid] = useState<boolean>(false);
 	const [isDark, setIsDark] = useState<boolean>(false);
 
+	useEffect(() => {
+		const storedDarkMode = localStorage.getItem('darkMode');
+		if (storedDarkMode === 'true') {
+			document.body.classList.add('darkMode');
+			setIsDark(true);
+		} else {
+			localStorage.setItem('darkMode', 'false');
+			document.body.classList.remove('darkMode');
+			setIsDark(false);
+		}
+	}, []);
+
+	const toggleDarkModeHandler = () => {
+		document.body.classList.toggle('darkMode');
+
+		setIsDark((prevState) => !prevState);
+		console.log('state: ', isDark);
+		const localDarkModeValue = isDark.toString();
+		console.log('local: ', localDarkModeValue);
+		localStorage.setItem('darkMode', localDarkModeValue);
+	};
+
 	const toggleMenuHandler = () => {
 		setIsMenu((prevState) => !prevState);
 	};
 
 	const toggleGridHandler = () => {
 		setIsGrid((prevState) => !prevState);
-	};
-
-	const toggleDarkModeHandler = () => {
-		document.body.classList.toggle('darkMode');
-		setIsDark((prevState) => !prevState);
 	};
 
 	const contextValue: UIObj = {

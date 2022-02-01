@@ -8,7 +8,7 @@ import MenuButton from './MenuButton';
 import classes from './MenuBar.module.css';
 import IconSun from './icons/IconSun';
 import IconMoon from './icons/IconMoon';
-import IconFilter from './icons/IconFilter';
+import FilterButton from './FilterButton';
 
 const MenuBar = () => {
 	const UICtx = useContext(UIContext);
@@ -59,10 +59,7 @@ const MenuBar = () => {
 							{isDarkMode ? 'light' : 'dark'} mode
 						</li>
 						<li className={classes.menuText}>
-							<Button onClick={toggleGrid}>
-								<IconFilter />
-							</Button>
-							Filter
+							<FilterButton />
 						</li>
 						<li className={classes.menuText}>
 							<Button onClick={toggleGrid}>

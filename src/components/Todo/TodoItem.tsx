@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import { TodoContext } from '../../store/todo-context';
 import { UIContext } from '../../store/UI-context';
 import Button from '../UI/Button';
 import IconCancel from '../UI/icons/IconCancel';
@@ -15,7 +14,6 @@ type todoItemProps = {
 };
 
 const TodoItem = (props: todoItemProps) => {
-	const todoCtx = useContext(TodoContext);
 	const UICtx = useContext(UIContext);
 	const itemClasses = `${classes.item} ${
 		UICtx.isGridDisplay ? classes.displayGrid : classes.displayList
