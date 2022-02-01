@@ -1,8 +1,9 @@
-import React, { ReactNode, FC, useContext } from 'react';
+import { FC, useContext } from 'react';
 import { UIContext } from '../../store/UI-context';
 import Button from './Button';
+import IconMenu from './icons/IconMenu';
 
-const MenuButton = () => {
+const MenuButton: FC = () => {
 	const UICtx = useContext(UIContext);
 
 	const buttonOffStyles = {
@@ -21,7 +22,7 @@ const MenuButton = () => {
 			width='100px'
 			onClick={UICtx.toggleMenu}
 		>
-			{UICtx.isMenuOpen ? 'M' : 'MENU'}
+			{UICtx.isMenuOpen ? <IconMenu /> : 'MENU'}
 		</Button>
 	);
 };

@@ -29,16 +29,16 @@
 }
 
 .menuIn {
-	animation: menuIn 1s ease-in;
+	animation: menuIn 0.5s ease-in;
 }
 .menuOut {
-	animation: menuOut 1s ease-in;
+	animation: menuOut 0.5s ease-in;
 }
 
 @keyframes menuIn {
 	0% {
 		opacity: 0;
-		transform: translateX(470px);
+		transform: translateX(460px);
 	}
 	100% {
 		opacity: 1;
@@ -53,23 +53,23 @@
 	}
 	100% {
 		opacity: 0;
-		transform: translateX(470px);
+		transform: translateX(460px);
 	}
 }
 
 .btnIn {
-	animation: btnIn 1s ease-in;
+	animation: btnIn 0.5s ease-in;
 }
 .btnOut {
-	animation: btnOut 1s ease-in;
+	animation: btnOut 0.5s ease-in;
 }
 .btnDone {
-	transform: translateX(470px);
+	transform: translateX(460px);
 }
 
 @keyframes btnIn {
 	0% {
-		transform: translateX(470px);
+		transform: translateX(460px);
 	}
 	100% {
 		transform: translateX(0);
@@ -81,6 +81,6 @@
 		transform: translateX(0);
 	}
 	100% {
-		transform: translateX(470px);
+		transform: translateX(460px);
 	}
 }

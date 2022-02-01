@@ -16,23 +16,24 @@ const MenuBar = () => {
 			<div className={classes.menuWrapper}>
 				<CSSTransition
 					in={isMenuOpen}
-					timeout={1000}
+					timeout={500}
 					classNames={{
 						enter: classes.btnDone,
-						appear: classes.btnDone,
 						enterActive: classes.btnIn,
 						exit: '',
 						exitActive: classes.btnOut,
 						exitDone: classes.btnDone,
 					}}
 				>
-					<MenuButton />
+					<div className={classes.btnDone}>
+						<MenuButton />
+					</div>
 				</CSSTransition>
 				<CSSTransition
-					mountOnEnter
-					unmountOnExit
+					mountOnEnter={true}
+					unmountOnExit={true}
 					in={isMenuOpen}
-					timeout={1000}
+					timeout={500}
 					classNames={{
 						enter: '',
 						enterActive: classes.menuIn,
@@ -41,6 +42,12 @@ const MenuBar = () => {
 					}}
 				>
 					<ul className={classes.menuList}>
+						<li className={classes.menuText}>
+							<Button onClick={toggleGrid}>
+								{isGridDisplay ? <IconList /> : <IconGrid />}
+							</Button>
+							display as {isGridDisplay ? 'list' : 'grid'}
+						</li>
 						<li className={classes.menuText}>
 							<Button onClick={toggleGrid}>
 								{isGridDisplay ? <IconList /> : <IconGrid />}
