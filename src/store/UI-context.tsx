@@ -11,6 +11,8 @@ type UIObj = {
 	toggleFilterOpen: () => void;
 	filterMatch: string;
 	setFilterMatch: (filter: string) => void;
+	isSortNew: boolean;
+	toggleSort: () => void;
 };
 
 export const UIContext = React.createContext<UIObj>({
@@ -24,6 +26,8 @@ export const UIContext = React.createContext<UIObj>({
 	toggleFilterOpen: () => {},
 	filterMatch: '',
 	setFilterMatch: (filter: string) => {},
+	isSortNew: false,
+	toggleSort: () => {},
 });
 
 const UIContextProvider: FC = ({ children }) => {
@@ -32,6 +36,7 @@ const UIContextProvider: FC = ({ children }) => {
 	const [isDark, setIsDark] = useState<boolean>(false);
 	const [isFilter, setIsFilter] = useState<boolean>(false);
 	const [filterText, setFilterText] = useState<string>('');
+	const [isSortNew, setSortNew] = useState(false);
 
 	useEffect(() => {
 		const storedDarkMode = localStorage.getItem('darkMode');
@@ -74,6 +79,10 @@ const UIContextProvider: FC = ({ children }) => {
 		setFilterText(filter);
 	};
 
+	const toggleSortHandler = () => {
+		setSortNew((prevState) => !prevState);
+	};
+
 	const contextValue: UIObj = {
 		isMenuOpen: isMenu,
 		toggleMenu: toggleMenuHandler,
@@ -85,6 +94,8 @@ const UIContextProvider: FC = ({ children }) => {
 		toggleFilterOpen: toggleFilterHandler,
 		filterMatch: filterText,
 		setFilterMatch: filterTextHandler,
+		isSortNew: isSortNew,
+		toggleSort: toggleSortHandler,
 	};
 
 	return (

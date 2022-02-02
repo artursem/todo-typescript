@@ -4,12 +4,24 @@ import { UIContext } from '../../store/UI-context';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import TodoItem from './TodoItem';
 import classes from './TodoList.module.css';
+import Todo from '../../models/todo';
 
 const TodoList: FC = () => {
 	const todoCtx = useContext(TodoContext);
 	const UICtx = useContext(UIContext);
 
+	const sortItems = (a: Todo, b: Todo) => {
+		let textA = a.id.toUpperCase();
+		let textB = b.id.toUpperCase();
+		if (UICtx.isSortNew) {
+			return textA < textB ? -1 : 1;
+		} else {
+			return textA < textB ? 1 : -1;
+		}
+	};
+
 	const listItems = todoCtx.items
+		.sort(sortItems)
 		.filter((todo) => todo.text.includes(UICtx.filterMatch))
 		.map((todo) => (
 			<CSSTransition

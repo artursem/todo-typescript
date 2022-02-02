@@ -8,12 +8,20 @@ import MenuButton from './MenuButton';
 import classes from './MenuBar.module.css';
 import IconSun from './icons/IconSun';
 import IconMoon from './icons/IconMoon';
+import IconMenu from './icons/IconMenu';
 import FilterButton from './FilterButton';
 
 const MenuBar = () => {
 	const UICtx = useContext(UIContext);
-	const { isGridDisplay, toggleGrid, isMenuOpen, isDarkMode, toggleDarkMode } =
-		UICtx;
+	const {
+		isGridDisplay,
+		toggleGrid,
+		isMenuOpen,
+		isDarkMode,
+		toggleDarkMode,
+		toggleSort,
+		isSortNew,
+	} = UICtx;
 
 	return (
 		<nav className={classes.nav}>
@@ -62,8 +70,14 @@ const MenuBar = () => {
 							<FilterButton />
 						</li>
 						<li className={classes.menuText}>
-							<Button onClick={toggleGrid}>
-								{isGridDisplay ? <IconList /> : <IconGrid />}
+							<Button onClick={toggleSort}>
+								<div
+									style={{
+										transform: isSortNew ? 'rotate(90deg)' : 'rotate(270deg)',
+									}}
+								>
+									<IconMenu />
+								</div>
 							</Button>
 							sort
 						</li>
