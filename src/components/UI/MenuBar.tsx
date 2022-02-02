@@ -58,13 +58,17 @@ const MenuBar = () => {
 							<Button onClick={toggleGrid}>
 								{isGridDisplay ? <IconList /> : <IconGrid />}
 							</Button>
-							display as {isGridDisplay ? 'list' : 'grid'}
+							<a onClick={toggleGrid}>
+								display as {isGridDisplay ? 'list' : 'grid'}
+							</a>
 						</li>
 						<li className={classes.menuText}>
 							<Button onClick={toggleDarkMode}>
 								{isDarkMode ? <IconSun /> : <IconMoon />}
 							</Button>
-							{isDarkMode ? 'light' : 'dark'} mode
+							<a onClick={toggleDarkMode}>
+								{isDarkMode ? 'light' : 'dark'} mode
+							</a>
 						</li>
 						<li className={classes.menuText}>
 							<FilterButton />
@@ -79,7 +83,7 @@ const MenuBar = () => {
 									<IconMenu />
 								</div>
 							</Button>
-							sort
+							<a onClick={toggleSort}>sort</a>
 						</li>
 					</ul>
 				</CSSTransition>
