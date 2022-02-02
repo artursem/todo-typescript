@@ -13,7 +13,7 @@ const TodoList: FC = () => {
 		<CSSTransition
 			mountOnEnter={true}
 			unmountOnExit={true}
-			timeout={200}
+			timeout={100}
 			classNames={{
 				enter: '',
 				enterActive: classes.fadeIn,
@@ -31,7 +31,6 @@ const TodoList: FC = () => {
 			/>
 		</CSSTransition>
 	));
-
 	const ulClasses = `${classes.list} ${
 		UICtx.isGridDisplay ? classes.displayAsGrid : classes.displayAsList
 	}`;
@@ -39,12 +38,9 @@ const TodoList: FC = () => {
 	return (
 		<Fragment>
 			<TransitionGroup className={ulClasses} component='ul'>
-				{listItems.length > 0 ? (
-					listItems
-				) : (
-					<p>Please add item in input above</p>
-				)}
+				{listItems}
 			</TransitionGroup>
+			{todoCtx.items.length === 0 && <p>Please add item in input above</p>}
 		</Fragment>
 	);
 };

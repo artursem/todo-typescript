@@ -29,10 +29,10 @@
 }
 
 .menuIn {
-	animation: menuIn 0.5s ease-in;
+	animation: menuIn 0.3s ease-in;
 }
 .menuOut {
-	animation: menuOut 0.5s ease-in;
+	animation: menuOut 0.3s ease-in;
 }
 
 @keyframes menuIn {
@@ -58,10 +58,10 @@
 }
 
 .btnIn {
-	animation: btnIn 0.5s ease-in;
+	animation: btnIn 0.3s ease-in;
 }
 .btnOut {
-	animation: btnOut 0.5s ease-in;
+	animation: btnOut 0.3s ease-in;
 }
 .btnDone {
 	transform: translateX(460px);

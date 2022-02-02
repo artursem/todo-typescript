@@ -20,7 +20,7 @@ const MenuBar = () => {
 			<div className={classes.menuWrapper}>
 				<CSSTransition
 					in={isMenuOpen}
-					timeout={500}
+					timeout={300}
 					classNames={{
 						enter: classes.btnDone,
 						enterActive: classes.btnIn,
@@ -37,7 +37,7 @@ const MenuBar = () => {
 					mountOnEnter={true}
 					unmountOnExit={true}
 					in={isMenuOpen}
-					timeout={500}
+					timeout={300}
 					classNames={{
 						enter: '',
 						enterActive: classes.menuIn,
