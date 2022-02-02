@@ -36,13 +36,15 @@ const UIContextProvider: FC = ({ children }) => {
 	}, []);
 
 	const toggleDarkModeHandler = () => {
-		document.body.classList.toggle('darkMode');
-
-		setIsDark((prevState) => !prevState);
-		console.log('state: ', isDark);
-		const localDarkModeValue = isDark.toString();
-		console.log('local: ', localDarkModeValue);
-		localStorage.setItem('darkMode', localDarkModeValue);
+		if (isDark) {
+			document.body.classList.remove('darkMode');
+			setIsDark(false);
+			localStorage.setItem('darkMode', 'false');
+		} else {
+			document.body.classList.add('darkMode');
+			setIsDark(true);
+			localStorage.setItem('darkMode', 'true');
+		}
 	};
 
 	const toggleMenuHandler = () => {

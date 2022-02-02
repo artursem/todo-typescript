@@ -13,3 +13,32 @@
 	column-gap: 0.5rem;
 	row-gap: 0.5rem;
 }
+
+.fadeIn {
+	animation: fadeIn 0.2s ease-in;
+}
+.fadeOut {
+	animation: fadeOut 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+		transform: translateY(100px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(100px);
+	}
+}
