@@ -2,22 +2,22 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	width: 7rem;
+	width: auto;
 	font-family: 'Roboto Mono', monospace;
 	font-size: 0.8rem;
 	text-transform: uppercase;
 }
 .menuText input {
-	width: 100%;
+	width: 12rem;
 	height: 2rem;
 	margin-right: 3px;
 	border: none;
-	border-bottom: 2px solid var(--black);
-	border-radius: 5px 5px 0 0;
+	border-radius: 5px;
 	background: var(--accentLight);
 	font-family: inherit;
-	font-size: 1rem;
+	font-size: 0.8rem;
 	font-weight: bold;
+	text-transform: none;
 	color: var(--black);
 	padding: 5px;
 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);

@@ -7,6 +7,10 @@ type UIObj = {
 	toggleGrid: () => void;
 	isDarkMode: boolean;
 	toggleDarkMode: () => void;
+	isFilterOpen: boolean;
+	toggleFilterOpen: () => void;
+	filterMatch: string;
+	setFilterMatch: (filter: string) => void;
 };
 
 export const UIContext = React.createContext<UIObj>({
@@ -16,12 +20,18 @@ export const UIContext = React.createContext<UIObj>({
 	toggleGrid: () => {},
 	isDarkMode: false,
 	toggleDarkMode: () => {},
+	isFilterOpen: false,
+	toggleFilterOpen: () => {},
+	filterMatch: '',
+	setFilterMatch: (filter: string) => {},
 });
 
 const UIContextProvider: FC = ({ children }) => {
 	const [isMenu, setIsMenu] = useState<boolean>(false);
 	const [isGrid, setIsGrid] = useState<boolean>(false);
 	const [isDark, setIsDark] = useState<boolean>(false);
+	const [isFilter, setIsFilter] = useState<boolean>(false);
+	const [filterText, setFilterText] = useState<string>('');
 
 	useEffect(() => {
 		const storedDarkMode = localStorage.getItem('darkMode');
@@ -35,6 +45,7 @@ const UIContextProvider: FC = ({ children }) => {
 		}
 	}, []);
 
+	// extract toggleHandlers into function?
 	const toggleDarkModeHandler = () => {
 		if (isDark) {
 			document.body.classList.remove('darkMode');
@@ -55,6 +66,14 @@ const UIContextProvider: FC = ({ children }) => {
 		setIsGrid((prevState) => !prevState);
 	};
 
+	const toggleFilterHandler = () => {
+		setIsFilter((prevState) => !prevState);
+	};
+
+	const filterTextHandler = (filter: string) => {
+		setFilterText(filter);
+	};
+
 	const contextValue: UIObj = {
 		isMenuOpen: isMenu,
 		toggleMenu: toggleMenuHandler,
@@ -62,6 +81,10 @@ const UIContextProvider: FC = ({ children }) => {
 		toggleGrid: toggleGridHandler,
 		isDarkMode: isDark,
 		toggleDarkMode: toggleDarkModeHandler,
+		isFilterOpen: isFilter,
+		toggleFilterOpen: toggleFilterHandler,
+		filterMatch: filterText,
+		setFilterMatch: filterTextHandler,
 	};
 
 	return (

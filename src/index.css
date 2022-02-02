@@ -35,3 +35,8 @@ body {
 	--accentMid: hsl(245, 50%, 60%);
 	--accentLight: hsl(245, 15%, 15%);
 }
+
+a,
+button {
+	cursor: pointer;
+}

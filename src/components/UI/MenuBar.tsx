@@ -65,7 +65,7 @@ const MenuBar = () => {
 							<Button onClick={toggleGrid}>
 								{isGridDisplay ? <IconList /> : <IconGrid />}
 							</Button>
-							display as {isGridDisplay ? 'list' : 'grid'}
+							sort
 						</li>
 					</ul>
 				</CSSTransition>
