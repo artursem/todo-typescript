@@ -77,7 +77,7 @@ const MenuBar = () => {
 							<Button onClick={toggleSort}>
 								<div
 									style={{
-										transform: isSortNew ? 'rotate(90deg)' : 'rotate(270deg)',
+										transform: isSortNew ? 'rotate(90deg)' : 'rotate(-90deg)',
 									}}
 								>
 									<IconMenu />
