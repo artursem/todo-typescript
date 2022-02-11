@@ -1,6 +1,7 @@
 import { useRef, useContext } from 'react';
 import { UIContext } from '../../store/UI-context';
 import Button from './Button';
+import MenuLink from './MenuLink';
 import IconFilter from './icons/IconFilter';
 import classes from './FilterButton.module.css';
 
@@ -29,7 +30,7 @@ const FilterButton = () => {
 					value={filterMatch}
 				/>
 			) : (
-				<a onClick={toggleFilterOpen}>filter</a>
+				<MenuLink onClick={toggleFilterOpen}>filter</MenuLink>
 			)}
 		</div>
 	);

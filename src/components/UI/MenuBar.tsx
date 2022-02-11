@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { UIContext } from '../../store/UI-context';
 import { CSSTransition } from 'react-transition-group';
 import Button from './Button';
+import MenuLink from './MenuLink';
 import IconList from './icons/IconList';
 import IconGrid from './icons/IconGrid';
 import MenuButton from './MenuButton';
@@ -58,17 +59,17 @@ const MenuBar = () => {
 							<Button onClick={toggleGrid}>
 								{isGridDisplay ? <IconList /> : <IconGrid />}
 							</Button>
-							<a onClick={toggleGrid}>
+							<MenuLink onClick={toggleGrid}>
 								display as {isGridDisplay ? 'list' : 'grid'}
-							</a>
+							</MenuLink>
 						</li>
 						<li className={classes.menuText}>
 							<Button onClick={toggleDarkMode}>
 								{isDarkMode ? <IconSun /> : <IconMoon />}
 							</Button>
-							<a onClick={toggleDarkMode}>
+							<MenuLink onClick={toggleDarkMode}>
 								{isDarkMode ? 'light' : 'dark'} mode
-							</a>
+							</MenuLink>
 						</li>
 						<li className={classes.menuText}>
 							<FilterButton />
@@ -83,7 +84,7 @@ const MenuBar = () => {
 									<IconMenu />
 								</div>
 							</Button>
-							<a onClick={toggleSort}>sort</a>
+							<MenuLink onClick={toggleSort}>sort</MenuLink>
 						</li>
 					</ul>
 				</CSSTransition>

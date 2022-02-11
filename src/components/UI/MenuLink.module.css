@@ -1,0 +1,9 @@
+.link {
+	border: none;
+	background: none;
+	color: var(--black);
+	font-family: 'Roboto Mono', monospace;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	cursor: pointer;
+}
