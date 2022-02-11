@@ -24,10 +24,10 @@ const TodoItem = (props: todoItemProps) => {
 		<li className={itemClasses}>
 			<p className={textClasses}>{props.text}</p>
 			<div className={classes.btns}>
-				<Button type='button' onClick={props.onToggleTodo}>
+				<Button type='button' onClick={props.onToggleTodo} title='toggle done'>
 					{props.isDone ? <IconCancel /> : <IconCheck />}
 				</Button>
-				<Button type='button' onClick={props.onRemoveTodo}>
+				<Button type='button' onClick={props.onRemoveTodo} title='remove'>
 					<IconTrash />
 				</Button>
 			</div>

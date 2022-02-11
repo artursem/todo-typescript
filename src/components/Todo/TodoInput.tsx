@@ -26,7 +26,7 @@ const TodoInput: FC = () => {
 				ref={todoInputRef}
 				className={classes.input}
 			/>
-			<Button type='submit' width='60px'>
+			<Button type='submit' width='60px' title='Add'>
 				Add
 			</Button>
 		</form>

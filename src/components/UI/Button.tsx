@@ -9,6 +9,7 @@ type ButtonProps = {
 	width?: string;
 	children?: ReactNode;
 	style?: React.CSSProperties;
+	title?: string;
 };
 
 const Button = ({
@@ -19,10 +20,12 @@ const Button = ({
 	height,
 	width,
 	style,
+	title,
 }: ButtonProps) => {
 	const buttonHeigth: string = height || '2rem';
 	const buttonWidth: string = width || '2rem';
 	const buttonType: 'submit' | 'button' | 'reset' = type || 'button';
+	const buttonTitle: string = title || 'button';
 
 	return (
 		<button
@@ -31,6 +34,8 @@ const Button = ({
 			type={buttonType}
 			className={classes.btn}
 			style={{ height: buttonHeigth, width: buttonWidth, ...style }}
+			title={buttonTitle}
+			name={buttonTitle}
 		>
 			{children}
 		</button>

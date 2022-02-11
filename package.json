@@ -5,11 +5,11 @@
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.16.2",
 		"@testing-library/react": "^12.1.2",
-		"@testing-library/user-event": "^13.5.0",
 		"@types/jest": "^27.4.0",
 		"@types/node": "^16.11.21",
 		"@types/react": "^17.0.38",
 		"@types/react-dom": "^17.0.11",
+		"jest-dom": "^4.0.0",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"react-scripts": "5.0.0",
@@ -20,7 +20,7 @@
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
-		"test": "react-scripts test --coverage",
+		"test": "react-scripts test",
 		"eject": "react-scripts eject"
 	},
 	"eslintConfig": {
@@ -42,6 +42,8 @@
 		]
 	},
 	"devDependencies": {
+		"@testing-library/dom": "^8.11.3",
+		"@testing-library/user-event": "^13.5.0",
 		"@types/react-transition-group": "^4.4.4",
 		"typed-css-modules-webpack-plugin": "^0.2.0",
 		"typescript-plugin-css-modules": "^3.4.0",
