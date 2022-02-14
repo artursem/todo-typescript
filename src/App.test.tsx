@@ -66,4 +66,22 @@ describe('Todo item', () => {
 			screen.queryByText(/remove this todo/i)
 		);
 	});
+	test('can be marked as done', async () => {
+		render(<App />);
+		const todoInput = screen.getByRole('textbox');
+		userEvent.clear(todoInput);
+		userEvent.type(todoInput, 'mark this todo');
+
+		const addBtn = screen.getByRole('button', { name: 'Add' });
+		userEvent.click(addBtn);
+		const doneTodo = screen.getByText(/mark this todo/i);
+		expect(doneTodo).not.toHaveClass('done');
+
+		const doneButton = screen.getByRole('button', {
+			name: /toggle done/i,
+		});
+		userEvent.click(doneButton);
+
+		expect(doneTodo).toHaveClass('done');
+	});
 });

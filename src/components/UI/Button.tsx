@@ -34,8 +34,6 @@ const Button = ({
 			type={buttonType}
 			className={classes.btn}
 			style={{ height: buttonHeigth, width: buttonWidth, ...style }}
-			title={buttonTitle}
-			name={buttonTitle}
 			aria-label={buttonTitle}
 		>
 			{children}
