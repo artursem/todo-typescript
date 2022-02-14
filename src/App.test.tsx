@@ -11,39 +11,52 @@ describe('App component', () => {
 });
 
 describe('Todo input', () => {
+	test('has correct initial state', () => {
+		render(<App />);
+
+		const noItemsAlert = screen.getByText(/please add item in input above/i);
+		expect(noItemsAlert).toBeInTheDocument();
+	});
+
 	test('recieves an item', () => {
 		render(<App />);
 
 		const todoInput = screen.getByRole('textbox');
+		const addBtn = screen.getByRole('button', { name: 'Add', exact: false });
 		userEvent.clear(todoInput);
 		userEvent.type(todoInput, 'add tests to app');
-
-		const addBtn = screen.getByRole('button', { name: 'Add', exact: false });
+		userEvent.click(addBtn);
+		userEvent.type(todoInput, 'add typescript');
 		userEvent.click(addBtn);
 
-		const sampleTodo = screen
-			.getAllByRole('listitem')
-			.find((listitem) => listitem.textContent === 'add tests to app');
+		const noItemsAlertGone = screen.queryByText(
+			/please add item in input above/i
+		);
+		expect(noItemsAlertGone).not.toBeInTheDocument();
 
-		expect(sampleTodo).toBeInTheDocument();
+		const todo1 = screen.getByText(/add tests to app/i);
+		expect(todo1).toBeInTheDocument();
+
+		const listItems = screen.getAllByRole('listitem');
+
+		expect(listItems).toHaveLength(2);
 	});
 });
 
 describe('Todo item', () => {
-	test('can be removed', () => {
+	test.skip('can be removed', () => {
 		render(<App />);
 		const todoInput = screen.getByRole('textbox');
 		userEvent.clear(todoInput);
-		userEvent.type(todoInput, 'add tests to app');
+		userEvent.type(todoInput, 'remove this todo');
 
 		const addBtn = screen.getByRole('button', { name: 'Add' });
 		userEvent.click(addBtn);
 
-		const removeButton = screen.getByRole('button', { name: 'remove' });
-		// screen.debug();
+		const removeButton = screen.getByRole('button', { name: /remove/i });
 		userEvent.click(removeButton);
-		const removedTodo = screen.queryByRole('listitem');
 
+		const removedTodo = screen.queryByText('remove this todo');
 		// expect(removedTodo).not.toBeInTheDocument();
 	});
 });

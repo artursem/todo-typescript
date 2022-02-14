@@ -36,6 +36,7 @@ const Button = ({
 			style={{ height: buttonHeigth, width: buttonWidth, ...style }}
 			title={buttonTitle}
 			name={buttonTitle}
+			aria-label={buttonTitle}
 		>
 			{children}
 		</button>
