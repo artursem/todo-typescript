@@ -1,4 +1,8 @@
-import { render, screen } from '@testing-library/react';
+import {
+	render,
+	screen,
+	waitForElementToBeRemoved,
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from './App';
 
@@ -38,13 +42,12 @@ describe('Todo input', () => {
 		expect(todo1).toBeInTheDocument();
 
 		const listItems = screen.getAllByRole('listitem');
-
 		expect(listItems).toHaveLength(2);
 	});
 });
 
 describe('Todo item', () => {
-	test.skip('can be removed', () => {
+	test('can be removed', async () => {
 		render(<App />);
 		const todoInput = screen.getByRole('textbox');
 		userEvent.clear(todoInput);
@@ -53,10 +56,14 @@ describe('Todo item', () => {
 		const addBtn = screen.getByRole('button', { name: 'Add' });
 		userEvent.click(addBtn);
 
-		const removeButton = screen.getByRole('button', { name: /remove/i });
+		const removeButton = screen.getByRole('button', {
+			name: /remove/i,
+			exact: false,
+		});
 		userEvent.click(removeButton);
 
-		const removedTodo = screen.queryByText('remove this todo');
-		// expect(removedTodo).not.toBeInTheDocument();
+		await waitForElementToBeRemoved(() =>
+			screen.queryByText(/remove this todo/i)
+		);
 	});
 });
